@@ -1,0 +1,64 @@
+/*
+Assessment Requirements
+1. Create a variable that can hold a number of NFT's. What type of variable might this be?
+2. Create an object inside your mintNFT function that will hold the metadata for your NFTs. 
+   The metadata values will be passed to the function as parameters. When the NFT is ready, 
+   you will store it in the variable you created in step 1
+3. Your listNFTs() function will print all of your NFTs metadata to the console (i.e. console.log("Name: " + someNFT.name))
+4. For good measure, getTotalSupply() should return the number of NFT's you have created
+*/
+
+// create a variable to hold your NFT's
+const emp_array=[];
+// this function will take in some values as parameters, create an
+// NFT object using the parameters passed to it for its metadata, 
+// and store it in the variable above.
+function set_data (emp_name,emp_age,emp_gender,emp_post,emp_salary,emp_experience) 
+{
+    const details={
+        "name":emp_name,
+        "age":emp_age,
+        "gender":emp_gender,
+        "post":emp_post,
+        "salary":emp_salary,
+        "experience":emp_experience
+    }
+    emp_array.unshift(details);
+    console.log("Minted " +emp_name);
+
+}
+
+// create a "loop" that will go through an "array" of NFT's
+// and print their metadata with console.log()
+function get_data () 
+{
+    let i = 0;
+    if (emp_array.length > 0) 
+    {
+        do 
+        {
+            console.log("\nid: \t" + (i + 1));
+            console.log("Name: \t" + emp_array[i].name);
+            console.log("Age: \t" + emp_array[i].age);
+            console.log("Gender: " + emp_array[i].gender);
+            console.log("Post: \t" + emp_array[i].post);
+            console.log("salary: "+emp_array[i].salary);
+            console.log("Exp: \t"+emp_array[i].experience);
+            i++;
+        } while (i < emp_array.length);
+    }
+}
+
+// print the total number of NFTs we have minted to the console
+function no_of_emp() 
+{
+    console.log("\nThe Total number of Employees are:- "+emp_array.length);
+}
+// call your functions below this line
+console.log("The details of the Company Employees are:-");
+set_data("Ayush","20","Male","Employee","120000","2");
+set_data("Harsh","19","Male","Employee","100000","1");
+set_data("Priya","20","Female","Manager","150000","5");
+set_data("Shiksha","21","Female","Senior Manager","200000","9");
+get_data();
+no_of_emp();
